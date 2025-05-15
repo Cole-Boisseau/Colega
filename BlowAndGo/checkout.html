@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blow &amp; Go - Checkout</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        form {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            color: blue;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        button:hover {
+            background-color: blue;
+        }
+        .message {
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blow &amp; Go</h1>
+        <p class="catchphrase">First you blow then you go</p>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <form id="checkout-form">
+            <h2>Checkout</h2>
+            <label for="card-name">Name on Card</label>
+            <input type="text" id="card-name" name="card-name" required />
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" maxlength="19" placeholder="1234 5678 9012 3456" required />
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry-date" name="expiry-date" maxlength="5" placeholder="MM/YY" required />
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" name="cvv" maxlength="4" required />
+            <button type="submit">Submit Payment</button>
+            <p class="message" id="message"></p>
+        </form>
+    </main>
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const messageEl = document.getElementById('message');
+            const paymentSound = new Audio('Sound Effect.mp4');
+            paymentSound.play();
+            messageEl.textContent = 'Payment processed successfully! (Not really, this is completely fake)';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

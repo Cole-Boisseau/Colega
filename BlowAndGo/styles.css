@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: green;
+    color: black;
+}
+
+header {
+    background-color: green;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.front-image {
+    max-width: 200px;
+    height: auto;
+    margin: 0.5rem 0;
+}
+
+.catchphrase {
+    font-style: italic;
+    margin-top: 0.5rem;
+    color: blue;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.gum-products {
+    margin-bottom: 2rem;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product {
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 6px;
+    padding: 1rem;
+    flex: 1 1 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product h3 {
+    margin-top: 0;
+    color: green;
+}
+
+.buy-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.buy-btn:hover {
+    background-color: blue;
+}
+
+.cart {
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#cart-items {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#cart-items li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid blue;
+}

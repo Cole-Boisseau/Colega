@@ -1,0 +1,8 @@
+.front-image {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.front-image.enlarged {
+    transform: scale(1.5);
+}

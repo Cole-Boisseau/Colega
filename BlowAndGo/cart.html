@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blow &amp; Go - Cart</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Blow &amp; Go</h1>
+        <p class="catchphrase">First you blow then you go</p>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <li>Loading cart...</li>
+            </ul>
+            <p id="total-price">Total: $0</p>
+            <button id="clear-cart">Clear Cart</button>
+            <button id="checkout-btn">Checkout</button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = document.getElementById('cart-items');
+            const clearCartBtn = document.getElementById('clear-cart');
+
+            function loadCart() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartItems.innerHTML = '';
+                if (cart.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'No items in cart.';
+                    cartItems.appendChild(li);
+                    document.getElementById('total-price').textContent = 'Total: $0';
+                    return;
+                }
+                let total = 0;
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                    cartItems.appendChild(li);
+                    total += item.price;
+                });
+                document.getElementById('total-price').textContent = `Total: $${total.toFixed(2)}`;
+            }
+
+            clearCartBtn.addEventListener('click', () => {
+                localStorage.removeItem('cart');
+                loadCart();
+                alert('Cart cleared.');
+            });
+
+            loadCart();
+        });
+
+        const checkoutBtn = document.getElementById('checkout-btn');
+        checkoutBtn.addEventListener('click', () => {
+            window.location.href = 'checkout.html';
+        });
+    </script>
+</body>
+</html>
